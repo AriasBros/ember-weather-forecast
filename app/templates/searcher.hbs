@@ -1,0 +1,15 @@
+{{#centered-container vertical=true horizontal=true}}
+  {{#card-view class="card-searcher"}}
+    {{top-app-bar navigation=false title=(t "searcher.title")}}
+
+    <div class="card__content">
+      {{#form-view "city" action=(action "search")}}
+        {{#text-field "query" label=(t "searcher.placeholder") value=search clear-button=true errors=errors}}
+          {{t "searcher.example"}}
+        {{/text-field}}
+
+        {{contained-button (t "searcher.search") type="submit" icon="search" class="mt-2 float-right" action=(action "search")}}
+      {{/form-view}}
+    </div>
+  {{/card-view}}
+{{/centered-container}}

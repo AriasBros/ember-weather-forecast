@@ -1,0 +1,64 @@
+{{#centered-container vertical=true horizontal=true}}
+  {{#card-view class="card-weather"}}
+    <header class="card__header">
+      <div class="card__title">
+        {{model.name}}
+      </div>
+
+      <div class="card__subtitle">
+        {{currentForecasting.dateFormatted}},
+        {{currentForecasting.description}}
+      </div>
+    </header>
+
+    <div class="card__content">
+      <div class="row my-3">
+        <div class="col col-12 col-sm-5 order-sm-last">
+          <img class="weather__icon mr-2" src="/images/{{currentForecasting.icon}}.svg">
+        </div>
+
+        <div class="col col-12 col-sm-7 order-sm-first">
+          <div class="weather__degrees">
+            {{currentForecasting.temperatureRounded}}<span>º</span><sup>C</sup>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col col-12 col-sm-6 mb-3">
+          <img class="weather__icon--xs" src="/images/cloudiness.svg">
+          <span class="weather__feature weather__feature-precipitation">{{currentForecasting.cloudiness}}% Cloudiness</span>
+        </div>
+
+        <div class="col col-12 col-sm-6 mb-3">
+          <img class="weather__icon--xs" src="/images/wind-speed.svg">
+          <span class="weather__feature weather__feature-winds">{{currentForecasting.windSpeedInKmH}} km/h Winds</span>
+        </div>
+
+        <div class="col col-12 col-sm-6 mb-3 mb-sm-0">
+          <img class="weather__icon--xs" src="/images/humidity.svg">
+          <span class="weather__feature weather__feature-humidity">{{currentForecasting.humidity}}% Humidity</span>
+        </div>
+
+
+        <div class="col col-12 col-sm-6">
+          <img class="weather__icon--xs" src="/images/wind-direction.svg">
+          <span class="weather__feature weather__feature-winds">Wind direction {{currentForecasting.windDirectionInCompass}}</span>
+        </div>
+      </div>
+    </div>
+
+    {{#list-view bordered=false class=listClass}}
+      {{#each model.days as |day index|}}
+        {{#if day}}
+          {{day-list-item day}}
+        {{/if}}
+      {{/each}}
+    {{/list-view}}
+
+    <footer class="card__actions">
+      {{icon-button "arrow_back" tooltip="Back" class="mr-auto" action=(action "back")}}
+      {{text-button actionTitle action=(action "toggle")}}
+    </footer>
+  {{/card-view}}
+{{/centered-container}}

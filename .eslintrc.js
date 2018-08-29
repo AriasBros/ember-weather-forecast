@@ -16,6 +16,9 @@ module.exports = {
   },
   rules: {
   },
+  globals: {
+    "moment": true
+  },
   overrides: [
     // node files
     {

@@ -20,7 +20,22 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    i18n: {
+      defaultLocale: 'en'
+    },
+
+    MATERIAL: {
+      ICON_FAMILY: "Material Icons",
+      ICON_TYPE: "content",
+      ICON_CLASS: "material-icons"
+    },
+
+    OPEN_WEATHER_MAP: {
+      API_HOST: "https://api.openweathermap.org/data/2.5/forecast",
+      API_KEY: process.env.OPEN_WEATHER_MAP_API_KEY,
+    },
   };
 
   if (environment === 'development') {

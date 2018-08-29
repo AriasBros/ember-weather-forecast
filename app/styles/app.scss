@@ -1,0 +1,142 @@
+@import "theming";
+@import "ember-material/app/styles/addon";
+
+body {
+  background-color: #e5e5e5;
+}
+
+.error-page {
+  font-size: 350px;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #f5ba44;
+  text-shadow: 8px 8px 1px #646c77;
+
+  & > img {
+    width: 300px;
+    position: relative;
+    top: -5px;
+  }
+}
+
+.centered-container {
+  overflow: scroll;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.card-searcher {
+  width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    width: 425px;
+  }
+}
+
+.card-weather {
+  width: 100%;
+  text-align: center;
+
+  @include media-breakpoint-up(sm) {
+    width: 460px;
+    text-align: left;
+  }
+
+  .card {
+    &__title {
+      font-size: 32px;
+      line-height: 1;
+      padding: 30px 24px 0;
+    }
+
+    &__subtitle {
+      font-size: 20px;
+      padding: 5px 24px 0;
+    }
+
+    &__content {
+      padding: 24px;
+    }
+  }
+}
+
+.list-view {
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow: scroll;
+
+  &__item {
+    &--single-line {
+      .list-view__item-content {
+        padding-left: 24px;
+        padding-right: 24px;
+        display: flex;
+        flex-direction: row;
+        font-size: 18px;
+        color: rgba(0,0,0,0.6);
+      }
+    }
+
+    &-label {
+      color: rgba(0,0,0,0.6);
+      font-weight: 400;
+      font-size: 18px;
+      margin-right: auto;
+    }
+  }
+}
+
+.weather {
+  &__degrees {
+    color: rgba(0,0,0,0.87);
+    font-weight: 300;
+    font-size: 140px;
+    line-height: 1;
+
+    & > span {
+      font-size: 40px;
+      font-weight: 900;
+      top: -70px;
+      position: relative;
+    }
+
+    & > sup {
+      font-size: 62px;
+      top: -0.9em;
+      font-weight: 400;
+    }
+  }
+
+  &__icon {
+    width: 140px;
+    height: auto;
+
+    &--xs {
+      width: 30px;
+      margin-right: 10px;
+    }
+  }
+
+  &__feature {
+    font-size: 16px;
+  }
+}
+
+.day {
+  &__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  &__max-temp {
+    margin-left: 40px;
+    color: rgba(0, 0, 0, 0.87);
+    margin-right: 4px;
+  }
+
+  &__min-temp {
+    margin-left: 4px;
+  }
+}
