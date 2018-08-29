@@ -14,5 +14,11 @@ module.exports = function(defaults) {
   app.import('node_modules/moment/moment.js');
   app.import('node_modules/moment/locale/es.js');
 
+  app.import('node_modules/should/should.js', {
+    using: [
+      { transformation: 'amd', as: 'should' }
+    ]
+  });
+
   return app.toTree();
 };
