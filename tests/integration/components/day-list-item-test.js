@@ -1,23 +1,29 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
+import 'should';
+import { describe, it } from 'mocha';
+import { setupRenderingTest } from 'ember-mocha';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | day-list-item', function(hooks) {
-  setupRenderingTest(hooks);
+describe('DayListItemComponent', function() {
+  setupRenderingTest();
 
-  test('it should renders empty', async function(assert) {
+  it('should renders empty', async function() {
     await render(hbs`{{day-list-item}}`);
-    assert.equal(this.element.textContent.trim(), '');
+    this.element.textContent.trim().should.be.empty();
   });
 
-  test('it should renders the day', async function(assert) {
+  it('should renders the name day with icon and temperatures', async function() {
     this.set('day', {
-
+      name: "Monday",
+      icon: "/images/01d.svg",
+      max: 30,
+      min: 15
     });
 
     await render(hbs`{{day-list-item day}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    this.element.querySelector('img').should.not.be.null();
+    this.element.textContent.trim().should.startWith("Monday");
+    this.element.textContent.trim().should.endWith("30º/15º");
   });
 });
